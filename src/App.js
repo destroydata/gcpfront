@@ -13,7 +13,7 @@ function App() {
   const onSubmitHandler = async (e) => {
     e.preventDefault()
     await apiNoToken('api', 'POST', member)
-    setData([...data, { ...member, id: data[data.length].id + 1 }])
+    setData([...data, { ...member, id: data.length === 0 ? 1 : data[data.length - 1].id + 1 }])
   }
 
   const getData = async () => {
